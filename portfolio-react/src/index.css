@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+/* Design tokens: change --color-accent to restyle the whole site
+   (try #79C0FF, #FFB86B or #F78FB3) */
+@theme {
+  --color-bg: #0d1117;
+  --color-bg-alt: #0a0d12;
+  --color-panel: #161b22;
+  --color-line: #30363d;
+  --color-line-soft: #21262d;
+  --color-ink: #e6edf3;
+  --color-muted: #9ba5b0;
+  --color-accent: #7ee0a3;
+
+  --color-code-kw: #ff7b72;
+  --color-code-str: #a5d6ff;
+  --color-code-bool: #79c0ff;
+  --color-code-fn: #d2a8ff;
+
+  --font-sans: "Manrope Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* Shared page width + side padding */
+@utility wrap {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1200px;
+  padding-inline: 1.25rem;
+
+  @media (min-width: 40rem) {
+    padding-inline: 1.5rem;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
